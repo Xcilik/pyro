@@ -23,7 +23,7 @@ from pyrogram.session import Session
 from pyrogram.session.auth import Auth
 
 
-async def get_session(client: "pyrogram.Client", dc_id: int) -> Session:
+async def get_session(client: "pyrogram.Client", dc_id: 5) -> Session:
     async with client.media_sessions_lock:
         if client.media_sessions.get(dc_id):
             return client.media_sessions[dc_id]
