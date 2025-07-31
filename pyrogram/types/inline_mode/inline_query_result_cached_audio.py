@@ -58,7 +58,6 @@ class InlineQueryResultCachedAudio(InlineQueryResult):
     def __init__(
         self,
         audio_file_id: str,
-        title: str,        
         id: str = None,
         caption: str = "",
         parse_mode: Optional["enums.ParseMode"] = None,
@@ -69,8 +68,6 @@ class InlineQueryResultCachedAudio(InlineQueryResult):
         super().__init__("audio", id, input_message_content, reply_markup)
 
         self.audio_file_id = audio_file_id
-        self.title = title  
-        self.description = description        
         self.caption = caption
         self.parse_mode = parse_mode
         self.caption_entities = caption_entities
@@ -87,8 +84,6 @@ class InlineQueryResultCachedAudio(InlineQueryResult):
         return raw.types.InputBotInlineResultDocument(
             id=self.id,
             type=self.type,
-            title=self.title,
-            description=self.description,
             document=raw.types.InputDocument(
                 id=file_id.media_id,
                 access_hash=file_id.access_hash,
